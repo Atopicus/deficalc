@@ -51,60 +51,61 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td className="border p-2">Tokens colateral (a):</td>
-                                <td className="border p-2">
-                                    <input
-                                        type="number"
-                                        
-                                        value={a}
-                                        onChange={handleDecimalChange(setA)}
-                                        className="w-full p-2 border rounded-lg"
-                                        placeholder="0.00"
-                                    />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="border p-2">Precio token en USD (b):</td>
-                                <td className="border p-2">
-                                    <input
-                                        type="number"
-                                        inputMode="decimal"
-                                        pattern="[0-9]*\.?[0-9]*"
-                                        value={b}
-                                        onChange={handleDecimalChange(setB)}
-                                        className="w-full p-2 border rounded-lg"
-                                        placeholder="0.00"
-                                    />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="border p-2">Valor deuda en USD (d):</td>
-                                <td className="border p-2">
-                                    <input
-                                        type="number"
-                                        inputMode="decimal"
-                                        pattern="[0-9]*\.?[0-9]*"
-                                        value={d}
-                                        onChange={handleDecimalChange(setD)}
-                                        className="w-full p-2 border rounded-lg"
-                                        placeholder="0.00"
-                                    />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="border p-2">LTV % max (e):</td>
-                                <td className="border p-2">
-                                    <input
-                                        type="number"
-                                        inputMode="decimal"
-                                        pattern="[0-9]*\.?[0-9]*"
-                                        value={e}
-                                        onChange={handleDecimalChange(setE)}
-                                        className="w-full p-2 border rounded-lg"
-                                        placeholder="0.00"
-                                    />
-                                </td>
-                            </tr>
+    <td class="border p-2">Tokens colateral (a):</td>
+    <td class="border p-2">
+        <input
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*\.?[0-9]*"
+            value={a}
+            onChange={handleDecimalChange(setA)}
+            className="w-full p-2 border rounded-lg"
+            placeholder="0.00"
+        />
+    </td>
+</tr>
+<tr>
+    <td class="border p-2">Precio token en USD (b):</td>
+    <td class="border p-2">
+        <input
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*\.?[0-9]*"
+            value={b}
+            onChange={handleDecimalChange(setB)}
+            className="w-full p-2 border rounded-lg"
+            placeholder="0.00"
+        />
+    </td>
+</tr>
+<tr>
+    <td class="border p-2">Valor deuda en USD (d):</td>
+    <td class="border p-2">
+        <input
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*\.?[0-9]*"
+            value={d}
+            onChange={handleDecimalChange(setD)}
+            className="w-full p-2 border rounded-lg"
+            placeholder="0.00"
+        />
+    </td>
+</tr>
+<tr>
+    <td class="border p-2">LTV % max (e):</td>
+    <td class="border p-2">
+        <input
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*\.?[0-9]*"
+            value={e}
+            onChange={handleDecimalChange(setE)}
+            className="w-full p-2 border rounded-lg"
+            placeholder="0.00"
+        />
+    </td>
+</tr>
                         </tbody>
                     </table>
                     
