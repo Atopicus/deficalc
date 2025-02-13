@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario en Tiempo Real</title>
+    <script defer src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script defer src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div id="root"></div>
+    <script type="text/babel">
+        function RealTimeForm() {
+            const [a, setA] = React.useState("");
+            const [b, setB] = React.useState("");
+            const [d, setD] = React.useState("");
+            const [e, setE] = React.useState("");
+            
+            const c = a && b ? a * b : 0;
+            const f = c > 0 ? (d / c) * 100 : 0;
+            const g = d > 0 ? (c * e) / (d * 100) : 0;
+            const h = c > 0 ? (c - (d / (e / 100))) / c * 100 : 0;
+            const i = a > 0 ? (c * (1 - (h /100))) / a : 0;
+
+            return (
+                <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-2xl">
+                    <h2 className="text-xl font-semibold mb-4">Formulario en tiempo real</h2>
+                    
+                    <table className="w-full border-collapse border border-gray-300 text-left">
+                        <thead>
+                            <tr className="bg-gray-200">
+                                <th className="border p-2">Parámetro</th>
+                                <th className="border p-2">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className="border p-2">Tokens colateral (a):</td>
+                                <td className="border p-2">
+                                    <input
+                                        type="text"
+                                        inputMode="numeric"
+                                        pattern="[0-9]*"
+                                        value={a}
+                                        onChange={(e) => setA(e.target.value)}
+                                        className="w-full p-2 border rounded-lg"
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="border p-2">Precio token en USD (b):</td>
+                                <td className="border p-2">
+                                    <input
+                                        type="text"
+                                        inputMode="numeric"
+                                        pattern="[0-9]*"
+                                        value={b}
+                                        onChange={(e) => setB(e.target.value)}
+                                        className="w-full p-2 border rounded-lg"
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="border p-2">Valor deuda en USD (d):</td>
+                                <td className="border p-2">
+                                    <input
+                                        type="text"
+                                        inputMode="numeric"
+                                        pattern="[0-9]*"
+                                        value={d}
+                                        onChange={(e) => setD(e.target.value)}
+                                        className="w-full p-2 border rounded-lg"
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="border p-2">LTV % max (e):</td>
+                                <td className="border p-2">
+                                    <input
+                                        type="text"
+                                        inputMode="numeric"
+                                        pattern="[0-9]*"
+                                        value={e}
+                                        onChange={(e) => setE(e.target.value)}
+                                        className="w-full p-2 border rounded-lg"
+                                    />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <table className="w-full border-collapse border border-gray-300 text-left mt-4">
+                        <thead>
+                            <tr className="bg-gray-200">
+                                <th className="border p-2">Cálculo</th>
+                                <th className="border p-2">Resultado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className="border p-2">Valor USD colateral (c):</td>
+                                <td className="border p-2 font-semibold text-blue-600">{c.toFixed(2)}</td>
+                            </tr>
+                            <tr>
+                                <td className="border p-2">LTV % actual (f):</td>
+                                <td className="border p-2 font-semibold text-blue-600">{f.toFixed(2)}</td>
+                            </tr>
+                            <tr>
+                                <td className="border p-2">Factor de salud (g):</td>
+                                <td className="border p-2 font-semibold text-blue-600">{g.toFixed(3)}</td>
+                            </tr>
+                            <tr>
+                                <td className="border p-2">Caída % (h):</td>
+                                <td className="border p-2 font-semibold text-blue-600">{h.toFixed(2)}</td>
+                            </tr>
+                            <tr>
+                                <td className="border p-2">Liquidación (i):</td>
+                                <td className="border p-2 font-semibold text-blue-600">{i.toFixed(3)}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            );
+        }
+        
+        ReactDOM.render(<RealTimeForm />, document.getElementById("root"));
+    </script>
+</body>
+</html>
+
