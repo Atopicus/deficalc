@@ -67,13 +67,16 @@
     <td class="border p-2">Precio token en USD (b):</td>
     <td class="border p-2">
         <input
-            type="text"
-            value={b}
-            onChange={handleDecimalChange(setB)}
-            onKeyUp={(e) => formatDecimalInput(e, setB)}
-            className="w-full p-2 border rounded-lg"
-            placeholder="0.00"
-        />
+    type="text"
+    inputMode="decimal"
+    pattern="[0-9]+([.,][0-9]*)?"
+    value={a}
+    onChange={handleDecimalChange(setA)}
+    onKeyUp={(e) => formatDecimalInput(e, setA)}
+    onFocus={(e) => e.target.setAttribute('inputmode', 'numeric')}
+    className="w-full p-2 border rounded-lg"
+    placeholder="0.00"
+/>
     </td>
 </tr>
 <tr>
