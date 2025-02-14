@@ -54,7 +54,7 @@
     <td class="border p-2">Tokens colateral (a):</td>
     <td class="border p-2">
         <input
-            type="text"
+            type="number" step="any"
             value={a}
             onChange={handleDecimalChange(setA)}
             onKeyUp={(e) => formatDecimalInput(e, setA)}
