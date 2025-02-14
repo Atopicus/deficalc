@@ -31,12 +31,12 @@
             const i = numA > 0 ? (c * (1 - h)) / numA : 0;
 
             // Función para validar decimales
-            const handleDecimalChange = (setter) => (e) => {
-                const value = e.target.value
-                    .replace(/[^0-9.]/g, '') // Solo números y puntos
-                    .replace(/(\..*)\./g, '$1'); // Solo un punto decimal
-                setter(value);
-            };
+            //const handleDecimalChange = (setter) => (e) => {
+            //    const value = e.target.value
+            //        .replace(/[^0-9.]/g, '') // Solo números y puntos
+            //        .replace(/(\..*)\./g, '$1'); // Solo un punto decimal
+            //    setter(value);
+            //};
 
             return (
                 <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-2xl">
