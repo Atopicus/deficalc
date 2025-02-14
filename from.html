@@ -39,22 +39,22 @@ document.addEventListener("DOMContentLoaded", function() {
             const h = c > 0 ? (c - (numD / (numE / 100))) / c : 0;
             const i = numA > 0 ? (c * (1 - h)) / numA : 0;
 
-            //Función para validar decimales
-            //const handleDecimalChange = (setter) => (e) => {
-              //  const value = e.target.value
-                //   .replace(/[^0-9.]/g, '') // Solo números y puntos
-                  // .replace(/(\..*)\./g, '$1'); // Solo un punto decimal
-                //setter(value);
-            //};
+            Función para validar decimales
+            const handleDecimalChange = (setter) => (e) => {
+              const value = e.target.value
+              .replace(/[^0-9.]/g, '') // Solo números y puntos
+             .replace(/(\..*)\./g, '$1'); // Solo un punto decimal
+            setter(value);
+            };
 
             return (
                 <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-2xl">
-                    <h2 className="text-xl font-semibold mb-4">Formulario en tiempo real</h2>
+                    <h2 className="text-xl font-semibold mb-4">Defi Form</h2>
                     
                     <table className="w-full border-collapse border border-gray-300 text-left">
                         <thead>
                             <tr className="bg-gray-200">
-                                <th className="border p-2">Parámetro</th>
+                                <th className="border p-2">Parámetros</th>
                                 <th className="border p-2">Valor</th>
                             </tr>
                         </thead>
@@ -62,16 +62,17 @@ document.addEventListener("DOMContentLoaded", function() {
                            <tr>
     <td class="border p-2">Tokens colateral (a):</td>
     <td class="border p-2">
-        <input
+    <input
     type="text"
-    inputMode="decimal"
-    pattern="[0-9]*[.,]?[0-9]*)"
+    inputMode="decimal" // Asegurar que el teclado de iOS muestra el punto
+    pattern="[0-9.]*" // Permite solo números y punto (sin comas para compatibilidad)
     value={a}
     onChange={handleDecimalChange(setA)}
     onKeyUp={(e) => formatDecimalInput(e, setA)}
-    onFocus={(e) => e.target.setAttribute('inputmode', 'numeric')}
+    onFocus={(e) => e.target.setAttribute('inputmode', 'decimal')} // Mantener "decimal"
     className="w-full p-2 border rounded-lg"
     placeholder="0.00"
+/>
     </td>
 </tr>
 <tr>
