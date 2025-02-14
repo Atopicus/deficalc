@@ -31,12 +31,12 @@
             const i = numA > 0 ? (c * (1 - h)) / numA : 0;
 
             //Función para validar decimales
-            const handleDecimalChange = (setter) => (e) => {
-                const value = e.target.value
-                   .replace(/[^0-9.]/g, '') // Solo números y puntos
-                   .replace(/(\..*)\./g, '$1'); // Solo un punto decimal
-                setter(value);
-            };
+            //const handleDecimalChange = (setter) => (e) => {
+              //  const value = e.target.value
+                //   .replace(/[^0-9.]/g, '') // Solo números y puntos
+                  // .replace(/(\..*)\./g, '$1'); // Solo un punto decimal
+                //setter(value);
+            //};
 
             return (
                 <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-2xl">
@@ -53,12 +53,14 @@
                            <tr>
     <td class="border p-2">Tokens colateral (a):</td>
     <td class="border p-2">
-         type="text"
+        <input
+     type="text"
     inputMode="decimal"
     pattern="[0-9]+([.,][0-9]*)?"
     value={a}
     onChange={handleDecimalChange(setA)}
     onKeyUp={(e) => formatDecimalInput(e, setA)}
+    onFocus={(e) => e.target.setAttribute('inputmode', 'numeric')}
     className="w-full p-2 border rounded-lg"
     placeholder="0.00"
     </td>
