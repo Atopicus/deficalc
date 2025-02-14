@@ -54,9 +54,9 @@
     <td class="border p-2">Tokens colateral (a):</td>
     <td class="border p-2">
         <input
-     type="tel"
+    type="text"
     inputMode="decimal"
-    pattern="[0-9]+([.,][0-9]*)?"
+    pattern="[0-9]*[.,]?[0-9]*)"
     value={a}
     onChange={handleDecimalChange(setA)}
     onKeyUp={(e) => formatDecimalInput(e, setA)}
